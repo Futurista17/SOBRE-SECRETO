@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Ti ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow: hidden;
+      font-family: 'Pacifico', cursive;
+      perspective: 1000px;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff3366;
+      font-size: 30px;
+      animation: flotar 6s infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-300px) scale(1.2) rotate(180deg); opacity: 1; }
+      100% { transform: translateY(-600px) scale(0.8) rotate(360deg); opacity: 0; }
+    }
+
+    .card {
+      width: 350px;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotateY(10deg) rotateX(5deg);
+      animation: girar 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes girar {
+      0% { transform: translate(-50%, -50%) rotateY(10deg) rotateX(5deg); }
+      50% { transform: translate(-50%, -50%) rotateY(-10deg) rotateX(-5deg); }
+      100% { transform: translate(-50%, -50%) rotateY(10deg) rotateX(5deg); }
+    }
+
+    h1 {
+      font-size: 50px;
+      color: #ff3366;
+      margin: 0;
+    }
+
+    p {
+      font-size: 22px;
+      color: #333;
+    }
+
+    .characters {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+    }
+
+    .char {
+      font-size: 60px;
+      animation: saltar 1.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes saltar {
+      from { transform: translateY(0); }
+      to { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corazones flotando -->
+  <script>
+    function crearCorazon() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(crearCorazon, 300);
+  </script>
+
+  <!-- Carta -->
+  <div class="card">
+    <h1>Te Amo ❤️</h1>
+    <p>Eres la mejor parte de mis días, mi razón para sonreír y la persona que quiero en mi vida por siempre. Gracias por existir.</p>
+  </div>
+
+  <!-- Muñequitos -->
+  <div class="characters">
+    <div class="char">👦🏻</div>
+    <div class="char">👧🏻</div>
+  </div>
+
+</body>
+  </html>
